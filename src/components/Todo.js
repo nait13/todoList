@@ -3,16 +3,14 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CircleIcon from '@mui/icons-material/Circle';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-// color 'primary' 'error'
-
-export const Todo = () => {
+export const Todo = ({done, text, handleClick, handleDelete, id}) => {
     return <Chip
         clickable
-        label='todo item'
+        label={text}
         deleteIcon={<DeleteIcon/>}
-        sx={{fontSize: 16, padding: 2.2}}
-        icon={<CheckCircleIcon/>}
-        onClick={()=>{console.log('click')}}
-        onDelete={()=>{console.log('delete')}}
+        sx={{fontSize: 16, padding: 2.2, width: 200}}
+        icon={done ? <CheckCircleIcon/> : <CircleIcon/>}
+        onClick={handleClick}
+        onDelete={() => handleDelete(id)}
     />
 };

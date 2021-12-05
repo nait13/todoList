@@ -17,6 +17,5 @@ export const TextField = ({value = '', handleChange, id, hintText, fieldName}) =
                     {hintText}
                 </FormHelperText>)
                 }
-                
             </FormControl>
 };
