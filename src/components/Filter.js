@@ -1,15 +1,11 @@
 import {useState} from 'react';
 import {FilterButton} from './FilterButton';
 import ButtonGroup from '@mui/material/ButtonGroup';
-
-const FILTER_TYPE = {
-    ALL: "ALL",
-    DONE: "DONE",
-    UNDONE: "UNDONE"
-};
+import {FILTER_TYPE} from '../constants/filterConstants';
+import {useSelector} from 'react-redux'; // TODO
 
 export const Filter = () => {
-    const [filterState, setFilterState] = useState(FILTER_TYPE.DONE);
+    const [filterState, setFilterState] = useState(FILTER_TYPE.ALL);
 
     const changeFilter = (filterType) => {
         setFilterState(filterType);
@@ -20,11 +16,11 @@ export const Filter = () => {
             {
                 Object.keys(FILTER_TYPE).map((filterType) => (
                     <FilterButton 
-                        label={filterType[0] + filterType.slice(1).toLowerCase()}
-                        onClick={changeFilter}
-                        filterType={filterType}/>      
+                        disabled={filterType === filterState}
+                        clickHandler={changeFilter}
+                        filterType={filterType}
+                        key={filterType}/>      
                 ))
             }
         </ButtonGroup>)
 };
-

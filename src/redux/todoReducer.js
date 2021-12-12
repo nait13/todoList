@@ -1,7 +1,9 @@
 import {todoActionTypes} from './todoActionTypes';
+import {FILTER_TYPE} from '../constants/filterConstants';
 
 const initialState = {
-    todos: []
+    todos: [],
+    filterType: FILTER_TYPE.ALL
 };
 
 export const todoReducer = (state = initialState, action) => {
