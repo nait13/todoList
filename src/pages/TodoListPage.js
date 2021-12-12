@@ -4,6 +4,7 @@ import {TextField, Button, Todo} from '../components';
 import {useSelector, useDispatch} from 'react-redux';
 import {getTodos} from '../redux/todoSelectors';
 import {addTodo, deleteTodo, switchTodoState} from '../redux/todoActions';
+import {Filter} from '../components/Filter';
 
 
 export const TodoListPage = () => {
@@ -30,6 +31,12 @@ export const TodoListPage = () => {
 
     return (<>
         <h1>Todo list</h1>
+        <Stack
+            justifyContent="center"
+            alignItems="center"
+            marginBottom={5}>
+            <Filter/>
+        </Stack>
         <Stack
             spacing={10}
             direction="row"
