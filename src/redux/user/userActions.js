@@ -1,17 +1,32 @@
+import {signIn, auth} from '../../firebase/firebaseAuth';
+import {userActionTypes} from '../user/userActionTypes';
+
 
 export const userLogin = () => {
     return (dispatch, getState) => {
-        setTimeout(()=>{
-            console.log('ACTION READY FOR DISPATCH AGAIN!');
-            // TODO
-            console.log('state: ', getState());
-        }, 2000)      
+        signIn()
+        .then((user) => {
+            dispatch({
+                type: userActionTypes.USER_LOGIN,
+                payload: user 
+            });
+        })
+        .catch((err) => {
+            dispatch({
+                type: 'USER_LOGIN_ERROR',
+                payload: err
+            });
+        })
     }
 }
 
-const someAction = () => ({
-    type: 'asdasd',
-    payload: 'asdasd'
-})
-
-
+export const userLogout = () => {
+    return (dispatch) => {
+        auth.signOut()
+        .then(() => {
+            dispatch({
+                type: userActionTypes.USER_LOGOUT
+            });
+        });
+    }
+}
