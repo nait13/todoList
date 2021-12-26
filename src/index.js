@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import {PrivateRoute} from './components/PrivateRoute';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 // TODO: add todos counter to header(menu)
+import {db} from './firebase/firebaseConfig';
 
 ReactDOM.render(
   <Provider store={store}>

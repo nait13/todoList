@@ -37,3 +37,42 @@ export const todoReducer = (state = initialState, action) => {
             return state;
     }
 };
+
+
+
+
+
+const person = {
+    name: 'John',
+    age: 23
+};
+
+function func () {
+
+    function test () {
+        console.log(this);
+    }
+
+    test();
+}
+
+func.call(person)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
