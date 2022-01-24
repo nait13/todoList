@@ -17,6 +17,8 @@ export const TodoListPage = () => {
     const todos = useSelector(getFilteredTodos);
     const userId = useSelector(getUserId);
 
+    console.log(todos)
+
     useEffect(() => {
         if (userId) {
             dispatch(initUser(userId));
